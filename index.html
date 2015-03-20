@@ -8,18 +8,21 @@
 		font-weight: 100;
 		font-size: 30px;
 	}
+	[contenteditable=true] {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
 	</style>
 </head>
 
 <body>
 	<ul class='list'>
-		<li><span class='bullet'></span><span class='content' contenteditable>Skills Paper Template</span></li>
-		<li><span class='bullet'></span><span class='content' contenteditable>Skills Paper #1</span></li>
-		<li><span class='bullet'></span><span class='content' contenteditable>Skills Paper #2</span><ul class='children list'>
-				<li><span class='bullet'></span><span class='content' contenteditable>#1</span></li>
-				<li><span class='bullet'></span><span class='content' contenteditable>#2</span></li>
-				<li><span class='bullet'></span><span class='content' contenteditable>#3</span></li>
-				<li><span class='bullet'></span><span class='content' contenteditable>#1</span></li>
+		<li><span class='bullet'></span><div class='content' contenteditable='true'>Skills Paper Template</div></li>
+		<li><span class='bullet'></span><div class='content' contenteditable='true'>Skills Paper #1</div></li>
+		<li><span class='bullet'></span><div class='content' contenteditable='true'>Skills Paper #2</div><ul class='children list'>
+				<li><span class='bullet'></span><div class='content' contenteditable='true'>#1</div></li>
+				<li><span class='bullet'></span><div class='content' contenteditable='true'>#2</div></li>
+				<li><span class='bullet'></span><div class='content' contenteditable='true'>#3</div></li>
+				<li><span class='bullet'></span><div class='content' contenteditable='true'>#1</div></li>
 			</ul>
 		</li>
 	</ul>
