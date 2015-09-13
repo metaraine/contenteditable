@@ -1,20 +1,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height">
 	<style type='text/css'>
 	body {
+		background-color: #212121;
+		color: #efefef;
 		font-family: "Helvetica Neue";
-		font-weight: 100;
-		font-size: 30px;
+		font-weight: 200;
+		line-height: 1.3em;
+		font-size: 16px;
+		margin: 0;
+	}
+	ul, li {
+		margin-top: 0.5em;
 	}
 	[contenteditable=true] {
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
+	.blur {
+		-webkit-filter: blur(2px);
+		opacity: 0.1;
+	}
+
+	.blur1 {
+		-webkit-filter: blur(2px);
+		opacity: 0.2;
+	}
+
+	.shifted {
+		margin-left: -60px;
+	}
+
+	/* https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=position%20fixed%20mobile%20keyboard */
+	.toolbar {
+		position: fixed;
+		bottom: 0;
+		background-color: #441420;
+		z-index: 100;
+		width: 100%;
+	}
+
+	.toolbar .button {
+		width: 50px;
+		height: 50px;
+		display: inline-block;
+		text-align: center;
+		line-height: 50px;
+		text-decoration: none;
+		color: #efefef;
+	}
+
+	.sprite {
+		display: inline-block;
+		background-size: 100%;
+		vertical-align: middle;
+	}
+
+	.sprite-link {
+		width: 20px;
+		height: 20px;
+		background-image: url(images/link.png);
+	}
+
+	.sprite-semantic-operation {
+		width: 25px;
+		height: 25px;
+		background-image: url(images/semantic-operation.png);
+	}
+
+	.sprite-indent-left {
+		width: 25px;
+		height: 25px;
+		background-image: url(images/indent-left.png);
+	}
+
+	.sprite-indent-right {
+		width: 25px;
+		height: 25px;
+		background-image: url(images/indent-right.png);
+	}
+
 	</style>
 </head>
 
 <body>
+
+	<div class='toolbar'>
+		<a href='#' class='button'>←</a><a href='#' class='button'>→</a><a href='#' class='button'><i class='sprite sprite-semantic-operation'></i></a><a href='#' class='button'><i class='sprite sprite-indent-left'></i></a><a href='#' class='button'><i class='sprite sprite-indent-right'></i></a><a href='#' class='button'><i class='sprite sprite-link'></i></a>
+	</div>
+
+
+	<!--
+		- can copy-paste multiple lines
+		- need special handling for pasting
+	-->
+	<ul contenteditable='true'>
+		<li>1a - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dignissimos quod assumenda eum unde beatae harum facere omnis eius molestiae iste suscipit accusamus dolore consequuntur quia natus deleniti architecto, repellendus.</li>
+		<li>1b - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa aliquam autem sint dolorum tempora aperiam voluptate? Delectus nisi dolores veniam id, assumenda cupiditate, fugit dolor dicta ex officiis ullam eligendi.</li>
+		<li>1c - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum molestias veritatis voluptas ullam accusantium autem, tenetur debitis consectetur, aliquam enim reprehenderit. Iste quia magnam provident nisi numquam, maiores quo.
+			<ul>
+				<li>2ca - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quasi, laboriosam? Repellendus quidem placeat cupiditate itaque vero, ducimus deserunt neque suscipit sit illum voluptatem eligendi, provident sint. Illum, eos, rem?
+					<ul>
+						<li>3caa - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque omnis doloremque vitae iusto. Voluptas reiciendis quidem molestiae harum ut sint, incidunt ad maiores corrupti ex, non rerum quam, obcaecati suscipit.</li>
+						<li>3cab - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus eum harum ullam ipsa aperiam hic quisquam perspiciatis adipisci esse eos et rem consequatur, quo cumque quas doloribus ipsum beatae sunt.
+							<ul>
+								<li>4caba - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, molestiae reprehenderit sequi sapiente dolorem voluptatibus illo tempora, veritatis esse accusantium ullam maxime ducimus delectus autem enim provident ratione iusto voluptatum!</li>
+								<li>4cabb - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti hic numquam modi beatae quo eius labore neque ratione quisquam nam, id animi voluptates in delectus officiis qui ut cupiditate! Ab.</li>
+								<li>4cabc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, commodi quis consectetur totam cumque nulla temporibus officiis ratione, dignissimos impedit nemo ipsa nam, voluptas asperiores fuga alias vel quas iste!</li>
+							</ul>
+						</li>
+						<li>Animals
+							<ul>
+								<li>Aardvark</li>
+								<li>Bear</li>
+								<li>Canary</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>2cb</li>
+				<li>2cc
+					<ul>
+						<li>Animals
+							<ul>
+								<li>Aardvark</li>
+								<li>Bear</li>
+								<li>Canary</li>
+							</ul>
+						</li>
+						<li>3ccb</li>
+						<li>3ccc</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+<!-- 	<ul contenteditable='true'>
+		<li>Skills Paper Template</li>
+		<li>Skills Paper #1</li>
+		<li>Skills Paper #2
+			<ul>
+				<li>#1</li>
+				<li>#2</li>
+				<li>#3</li>
+			</ul>
+		</li>
+	</ul>
+ -->
+
+	<!--
+		- can't copy-paste multiple lines
+	-->
+<!-- 	<b>Separate contenteditable divs in li's</b>
 	<ul class='list'>
 		<li><span class='bullet'></span><div class='content' contenteditable='true'>Skills Paper Template</div></li>
 		<li><span class='bullet'></span><div class='content' contenteditable='true'>Skills Paper #1</div></li>
@@ -24,6 +164,50 @@
 				<li><span class='bullet'></span><div class='content' contenteditable='true'>#3</div></li>
 			</ul>
 		</li>
+	</ul> -->
+
+	<!--
+		- can't copy-paste multiple lines
+	-->
+<!-- 	<b>Separate contenteditable li's</b>
+	<ul class='list'>
+		<li contenteditable='true'>Skills Paper Template</li>
+		<li contenteditable='true'>Skills Paper #1</li>
+		<li contenteditable='true'>Skills Paper #2
+			<ul>
+				<li contenteditable='true'>#1</li>
+				<li contenteditable='true'>#2</li>
+				<li contenteditable='true'>#3</li>
+			</ul>
+		</li>
 	</ul>
+ -->
+
+	<!--
+		- no advantage over list?
+	-->
+<!-- 	<b>Single contenteditable paragraph</b>
+	<div>
+		<p contenteditable='true'>My Paragraph</p>
+	</div> -->
+
+	<ul contenteditable='true' class='shifted'>
+		<li class='blur'>1a - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dignissimos quod assumenda eum unde beatae harum facere omnis eius molestiae iste suscipit accusamus dolore consequuntur quia natus deleniti architecto, repellendus.</li>
+		<li class='blur'>1b - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa aliquam autem sint dolorum tempora aperiam voluptate? Delectus nisi dolores veniam id, assumenda cupiditate, fugit dolor dicta ex officiis ullam eligendi.</li>
+		<li><div class='blur'>1c - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum molestias veritatis voluptas ullam accusantium autem, tenetur debitis consectetur, aliquam enim reprehenderit. Iste quia magnam provident nisi numquam, maiores quo.</div>
+			<ul>
+				<li><div class='blur1'>Animals</div>
+						<ul>
+							<li>Aardvark</li>
+							<li>Bear</li>
+							<li>Canary</li>
+						</ul>
+					</li>
+			</ul>
+		</li>
+		<li class='blur'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur harum deserunt itaque veritatis ex vitae esse, non labore quas assumenda nisi quo minus totam accusantium voluptatibus tempora tempore, sunt repellat.</li>
+		<li class='blur'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt libero vel quidem necessitatibus, corporis suscipit. Facilis labore officia ea cupiditate quae, consequuntur et animi! Ad atque, velit aliquam sed delectus?</li>
+	</ul>
+
 </body>
 </html>
